@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title%}
+SMS Page
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <div class="container col-6 ">
+        <form method="POST" class="form-register" style="color: white;">
+            {{smsForm.hidden_tag()}}
+            <br>
+            <h1 class="h3 mt-2 mb-3 font-weight-normal">
+             Send SMS!
+            </h1>
+
+
+            <br>
+            {{smsForm.phone_number.label()}}
+            {{smsForm.phone_number(class="form-control", placeholder="E.G. 2348112950565")}}
+            <br>
+            <!-- <input id="item" name="item" type="hidden" value="{{product_id}}"> -->
+         
+            <br>
+            <div class="checkbox mb-3">
+                <a class="btn btn-sm btn-secondary" href="{{url_for('market_page')}}">Cancel </a>
+            </div>
+            {{smsForm.submit(class="btn btn-outline-success btn-block")}}
+
+        </form>
+    </div>
+</div>
+{% endblock %}

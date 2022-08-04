@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title%}
+Add Product Page
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color: white;">
+            {{addProductForm.hidden_tag()}}
+            <h1 class="h3 mt-2 mb-3 font-weight-normal">
+             Add a New Product
+            </h1>
+
+            <br>
+            {{addProductForm.product_name.label()}}
+            {{addProductForm.product_name(class="form-control", placeholder="Enter Product Name")}}
+
+            {{addProductForm.product_price.label()}}
+            {{addProductForm.product_price(class="form-control", placeholder="Enter Product Price")}}
+
+            {{addProductForm.quantity.label()}}
+            {{addProductForm.quantity(class="form-control", placeholder="Enter Product Quantity")}}
+
+            {{addProductForm.supplier.label()}}
+            {{addProductForm.supplier(class="form-control", placeholder="Enter Supplier Name")}}
+
+            <br>
+
+
+            <br>
+            <div class="checkbox mb-3">
+                <a class="btn btn-sm btn-secondary" href="{{url_for('market_page')}}">Cancel </a>
+            </div>
+            {{addProductForm.submit(class="btn btn-outline-success btn-block")}}
+
+        </form>
+    </div>
+</div>
+{% endblock %}

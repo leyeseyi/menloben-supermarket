@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Market Page
+{%endblock%}
+
+{%block content%}
+
+<style type="text/css">
+    table {
+        counter-reset: row-num - 1;
+    }
+
+    table tr {
+        counter-increment: row-num;
+    }
+
+    table tr td:first-child::before {
+        content: counter(row-num) ". ";
+    }
+</style>
+<div class="row" style="margin-top: 20px; margin-left: 20px;">
+    <div class="col-8">
+        <h2>Available products in the store</h2>
+        <p>Click on one of the items to start buying</p>
+        <br>
+        <div class="table-responsive" >
+            <table class="table table-dark table-hover table-1">
+                <thead>
+                    <tr>
+                        <!-- Your Columns HERE -->
+                        <th scope="col">S/N</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Your rows inside the table HERE: -->
+                    {% for product in products %}
+                    {% include 'includes/items_modals.html' %}
+                    <tr>
+                        <td></td>
+                        <td>{{product.product_name}}</td>
+                        <td>{{product.prettier_price}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>
+                            {% if product.quantity > 0 %}
+                            <span class="text-success">Available</span>
+                            {% else %}
+                            <span class="text-danger">Out of Stock</span>
+                            {% endif %}
+                        </td>
+                        <td>{{product.supplier}}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm" data-toggle="modal"
+                                data-target="#Modal-MoreInfo-{{product.id}}">Update Qty</button>
+                            <button class="btn btn-danger btn-sm" data-toggle="modal"
+                                data-target="#Modal-Remove-{{product.id}}">Remove Item</button>
+                            {% if product.quantity > 0 %}
+                            <button class="btn btn-success btn-sm" data-toggle="modal" disabled>Send SMS</button>
+                            {% else %}
+                            <a class="btn btn-success btn-sm"  href="/sendSMS/{{product.id}}" >Send SMS</a>
+                            {% endif %}
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="col-4">
+        <h2>Dashboard</h2>
+        <p>Click on the button below to add product to the market </p>
+        <div class="row">
+            <div class="col-md-6" style="margin-top: 20px">
+                <div style="margin-bottom: 5px" class="card text-center bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title"> New Product</h5>
+                        <a class="btn btn-outline-success" href="{{url_for('product_page')}}"> Add New Item</a>
+
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</div>
+
+{%endblock%}

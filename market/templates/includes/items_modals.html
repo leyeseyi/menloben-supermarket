@@ -1,0 +1,67 @@
+<style>
+    .modal-content{
+        background-color: #212121;
+    }
+</style>
+<!-- Modal -->
+<div class="modal fade" id="Modal-MoreInfo-{{product.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Update {{product.product_name}} Quantity</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST">
+                {{updateQtyForm.hidden_tag()}}
+                
+                <br> 
+                {{updateQtyForm.new_quantity.label()}}
+                {{updateQtyForm.new_quantity(class="form-control", placeholder="Enter new product quantity")}}
+                <br>
+                <input id="updated_item" name="updated_item" type="hidden" value="{{product.id}}">
+                {{updateQtyForm.submit(class="btn btn-outline-success btn-block")}}
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Remove Product -->
+<div class="modal fade" id="Modal-Remove-{{product.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Product: {{product.product_name}} </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST">
+                {{removeItemForm.hidden_tag()}}
+                <h4 class="text-center">Are you sure you want to remove {{product.product_name}} from the product list?</h4>
+                <br> 
+                <h6>By clicking Remove Item, you will remove this product.</h6>
+                <br> 
+                <input id="removed_item" name="removed_item" type="hidden" value="{{product.id}}">
+                {{removeItemForm.submit(class="btn btn-outline-danger btn-block")}}
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
