@@ -1,11 +1,14 @@
 # MENLOBEN SUPERMARKET
+![Landing Page](https://github.com/leyeseyi/menloben-supermarket/blob/main/screeshots/Welcome%20Page.png?raw=true)
 
 A new digitally enabled inventory application for stores to manage products. This application performs the following:
 
-1. Register a store-keeper / managers
-
+1. User authentication (store-keeper / manager)
+![Login Page](https://github.com/leyeseyi/menloben-supermarket/blob/main/screeshots/Login%20Page.png?raw=true)
 2. Allows store-keeper / shop managers to add new products, delete products and edit quantity of exisiting products.
+![Add Product](https://github.com/leyeseyi/menloben-supermarket/blob/main/screeshots/New%20Product%20Page.png?raw=true)
 3. Allows the shop managers to notify the supplier through SMS using the Vonage API.
+![Dashboard](https://github.com/leyeseyi/menloben-supermarket/blob/main/screeshots/Items%20Dashboard.png?raw=true)
 
 # Getting Started
 
