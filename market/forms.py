@@ -46,5 +46,5 @@ class AddProductForm(FlaskForm):
     submit = SubmitField(label='Add Product')
 
 class SMSForm(FlaskForm):
-    phone_number = StringField(label='Phone Number:', validators=[Length(min=9,max=9), DataRequired()])
+    phone_number = StringField(label='Phone Number:', validators=[Length(min=13,max=13), DataRequired()])
     submit = SubmitField(label='Send SMS')
