@@ -38,6 +38,7 @@ This will install all of the required packages we selected within the `requireme
 
 - [SQLAlchemy](https://www.sqlalchemy.org/) and [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) are libraries to handle the lightweight sqlite database. 
 
+- [Vonage API](https://www.vonage.com/communications-apis/sms/) handles how we send text messages to product suppliers or notify manager about stock quantity.
 
 ## Running the server
 
